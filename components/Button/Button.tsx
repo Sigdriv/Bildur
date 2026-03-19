@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
-import type { ReactNode } from 'react';
+import { useRouter } from "next/navigation";
+import type { ReactNode } from "react";
 
-import { Button as HeroButton } from '@heroui/react';
+import { Button as HeroButton } from "@heroui/react";
 
 type BaseProps = {
   children: ReactNode;
-  variant?: 'solid' | 'light' | 'bordered';
+  variant?: "solid" | "light" | "bordered";
   isLoading?: boolean;
-  color?: 'default' | 'danger';
+  color?: "default" | "danger";
   isIconOnly?: boolean;
   isDisabled?: boolean;
 };
@@ -17,7 +17,7 @@ type BaseProps = {
 type Props = BaseProps &
   (
     | {
-        type: 'submit' | 'reset';
+        type: "submit" | "reset";
         onClick?: () => void;
         href?: never;
       }
@@ -36,9 +36,9 @@ type Props = BaseProps &
 export function Button({
   onClick,
   children,
-  variant = 'bordered',
+  variant = "bordered",
   isLoading,
-  color = 'default',
+  color = "default",
   isIconOnly = false,
   type,
   href,
@@ -53,7 +53,7 @@ export function Button({
   };
 
   return (
-    <div className="my-2 w-full">
+    <div className="smy-2 w-full">
       <HeroButton
         fullWidth
         color={color}

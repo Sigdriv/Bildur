@@ -1,4 +1,4 @@
-import { get } from "@http";
+import { get, postForm } from "@http";
 import { urls } from "../urls";
 import type { PreviewImage } from "./types";
 
@@ -8,4 +8,13 @@ export async function getImages() {
   });
 
   return images;
+}
+
+export async function uploadImages(images: File[]) {
+  for (const image of images) {
+    const formData = new FormData();
+    formData.append("file", image);
+
+    await postForm({ url: urls.uploadImage, body: formData });
+  }
 }
