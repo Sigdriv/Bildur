@@ -1,6 +1,6 @@
 import { get, postForm } from "@http";
 import { urls } from "../urls";
-import type { PreviewImage } from "./types";
+import type { PreviewImage, Image } from "./types";
 
 export async function getImages() {
   const { images } = await get<{ images: PreviewImage[] }>({
@@ -8,6 +8,14 @@ export async function getImages() {
   });
 
   return images;
+}
+
+export interface GetImageParams {
+  id: string;
+}
+
+export function getImage({ id }: GetImageParams): Promise<Image> {
+  return get({ url: urls.getImage(id) });
 }
 
 export async function uploadImages(images: File[]) {
